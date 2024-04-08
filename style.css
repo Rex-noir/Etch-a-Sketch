@@ -1,14 +1,11 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 70%;
-    outline: solid;
+body{
+    background-color: #251f1f;
+    color: wheat;
 }
 /*Headers */
 .header-container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 form{
@@ -50,4 +47,25 @@ svg, .header-buttons img{
     padding: 2px;
     font-size: 12px;
     text-align: center;
+}
+
+/* Page rows */
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: stretch;
+    align-items: center;
+    width: 50%;
+    background-size:cover;
+}
+.row{
+    display: flex;
+}
+.item{
+
+    background-color: white;
+    border: 1px solid black;
+    width: 15px;
+    height: 15px;
 }
