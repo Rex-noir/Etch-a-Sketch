@@ -44,18 +44,39 @@ function createGrid(totalGrid, container){
 let resizeButton = document.querySelector("form");
 resizeButton.addEventListener("submit", resizeGrid);
 
-//adding Listener to mouseenter and mouseleave of the div
-
-addMouseHoverEventListener(grids);
-function addMouseHoverEventListener(element){
+//If the mouse is clicked and move
+let isMouseDown = false;
+mouseDownListener(grids);
+function mouseDownListener(element){
     element.forEach((item)=>{
-        item.addEventListener("mouseenter", mouseEnterFunction);
+        item.addEventListener("mousedown", (e)=>{
+            isMouseDown = true;
+            item.addEventListener("")
+        })
+        item.addEventListener("mousemove", (e)=>{
+            if (isMouseDown){
+                msgLog("mouse moved");
+                item.addEventListener("mouseenter", mouseEnterFunction);
+            }
+        })
+        item.addEventListener("mouseup", (e)=>{
+            isMouseDown = false;
+            msgLog("mouse up")
+            item.removeEventListener("mouseenter", mouseEnterFunction)
+        })
+    })
+
+    element.forEach((item)=>{
+        if(isMouseDown){
+            item.addEventListener("mouseenter", mouseEnterFunction);
+        }
     })
 }
+//adding Listener to mouseenter and mouseleave of the div
+
 function mouseEnterFunction(e){
 
     let element = e.target;
-
     if (random){
         let colors = getRandomColor();
         element.style.backgroundColor = `rgb(${colors[0]}, ${colors[1]}, ${colors[2]})`;
