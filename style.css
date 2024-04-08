@@ -8,7 +8,7 @@
 /*Headers */
 .header-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 form{
@@ -31,4 +31,23 @@ input[value="Resize"]{
     align-self: flex-end;
     height: auto;
     width: auto;
+}
+
+.header-buttons{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+svg, .header-buttons img{
+    width: 24px;
+    height: 24px;
+}
+
+.options p {
+    margin: 0;
+    padding: 2px;
+    font-size: 12px;
+    text-align: center;
 }
