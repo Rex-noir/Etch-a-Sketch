@@ -19,3 +19,8 @@ for (let i = 0; i < totalGrid; i ++){
 
 }
 
+//Resize button handler
+let resizeButton = document.querySelector("input[value='Resize']");
+resizeButton.addEventListener("click", (e) =>{
+
+})
