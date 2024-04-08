@@ -2,9 +2,12 @@ import { createHtmlElement, getInputValuebyId, checkSize ,resizeGrid, msgLog} fr
 
 let totalGrid = 16; // meaning 16 * 16
 let container = document.querySelector(".container");
+
 createGrid(totalGrid, container);
 
+//Grid creating function
 function createGrid(totalGrid, container){
+
     for (let i = 0; i < totalGrid; i ++){
 
         let divRow = createHtmlElement('div', 'row');
@@ -28,3 +31,19 @@ resizeButton.addEventListener("submit", resizeGrid);
 
 //Random colors
 let random = false;
+
+
+//resetButton
+let resetButton = document.querySelector("#resetButton");
+resetButton.addEventListener("click", ()=>{
+
+    let grids = document.querySelectorAll(".container div");
+    
+    if (grids) {
+        grids.forEach((items)=>{
+            items.remove();
+        })
+    }
+    createGrid(16, container);
+    msgLog("The sketch is reset.")
+})
