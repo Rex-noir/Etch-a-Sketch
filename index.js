@@ -55,12 +55,10 @@ mouseDownListener(grids);
 function mouseDownListener(element){
     element.forEach((item)=>{
         item.addEventListener("mouseenter", mouseEnterFunction);
+        item.addEventListener("dblclick", mouseEnterFunction);
+
         item.addEventListener("mousedown", (e)=>{
             isMouseDown = true;
-        })
-        item.addEventListener("mousemove", (e)=>{
-            if (isMouseDown){
-            }
         })
         item.addEventListener("mouseup", (e)=>{
             isMouseDown = false;
@@ -68,26 +66,26 @@ function mouseDownListener(element){
             item.removeEventListener("mouseenter", mouseEnterFunction)
         })
     })
-
-    element.forEach((item)=>{
-        if(isMouseDown){
-            item.addEventListener("mouseenter", mouseEnterFunction);
-        }
+    container.addEventListener("mouseleave", (e)=>{
+        isMouseDown = false;
     })
 }
 //adding Listener to mouseenter and mouseleave of the div
 
 function mouseEnterFunction(e){
-    if (isMouseDown){
+    if (isMouseDown || e.type == 'dblclick'){
         msgLog("Mousedown");
+        if (e.type == 'dblclick') {
+            isMouseDown = true;
+        }
         let element = e.target;
-    if (random){
-        let colors = getRandomColor();
-        element.style.backgroundColor = `rgb(${colors[0]}, ${colors[1]}, ${colors[2]})`;
-    }
-    else{
-        element.style.backgroundColor = "black";
-    }
+            if (random){
+                let colors = getRandomColor();
+                element.style.backgroundColor = `rgb(${colors[0]}, ${colors[1]}, ${colors[2]})`;
+            }
+            else{
+                element.style.backgroundColor = "black";
+        }
     }
     else{msgLog("Mouse not down")}
     
