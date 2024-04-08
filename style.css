@@ -5,3 +5,30 @@
     width: 70%;
     outline: solid;
 }
+/*Headers */
+.header-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+}
+label {
+    display: block;
+}
+input[type="text"]{
+    border-radius: 5px;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid black;
+}
+input[value="Resize"]{
+    padding: 5px;
+    border-radius: 5px;
+    align-self: flex-end;
+    height: auto;
+    width: auto;
+}
