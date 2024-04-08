@@ -13,6 +13,21 @@ function createHtmlElement(tagName, className, tagId){
 //getInputValue
 function getInputValuebyId(id){
     let value = document.querySelector(`#${id}`).value;
+    document.querySelector(`#${id}`).value = '';
     return value;
 }
-export {createHtmlElement}
+//checkSize 
+function checkSize(size){
+
+    if (size > 70){
+        size = 70;
+    }
+    else if(size < 30){
+        size = 30
+    }
+    else {
+        return 30;
+    }
+    return size;
+}
+export {createHtmlElement, getInputValuebyId, checkSize}
