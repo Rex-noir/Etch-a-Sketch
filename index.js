@@ -2,6 +2,7 @@ import { createHtmlElement, getInputValuebyId, checkSize ,resizeGrid, msgLog, ge
 
 let totalGrid = 16; // meaning 16 * 16
 let container = document.querySelector(".container");
+
 //Random colors
 let random = false;
 let randomButton = document.querySelector("#randomButton");
@@ -10,9 +11,11 @@ randomButton.addEventListener("click", (e)=>{
     else random = true;
     msgLog("Random Color button clicked");
 })
+
 //Grid
 createGrid(totalGrid, container);
 let grids = document.querySelectorAll(".container div");
+
 //Grid creating function
 function createGrid(totalGrid, container){
 
@@ -26,9 +29,7 @@ function createGrid(totalGrid, container){
             divRow.appendChild(divColum);
     
         }
-    
         container.appendChild(divRow);
-    
     }
 }
 
@@ -38,6 +39,7 @@ let resizeButton = document.querySelector("form");
 resizeButton.addEventListener("submit", resizeGrid);
 
 //adding Listener to mouseenter and mouseleave of the div
+
 addMouseHoverEventListener(grids);
 function addMouseHoverEventListener(element){
     element.forEach((item)=>{
@@ -53,6 +55,9 @@ function mouseEnterFunction(e){
         let colors = getRandomColor();
         msgLog(colors);
         element.style.backgroundColor = `rgb(${colors[0]}, ${colors[1]}, ${colors[2]})`;
+    }
+    else{
+        element.style.backgroundColor = "black";
     }
 }
 function mouseLeaveFunction(e){
