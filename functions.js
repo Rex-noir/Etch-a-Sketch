@@ -25,9 +25,36 @@ function checkSize(size){
     else if(size < 30){
         size = 30
     }
-    else {
-        return 30;
-    }
+
     return size;
 }
-export {createHtmlElement, getInputValuebyId, checkSize}
+//createMsg Log
+function msgLog(text = 'something happened'){
+    
+    let tempPra = document.querySelector('.msgLog');
+    if (tempPra) tempPra.remove();
+
+    let msgContainer = document.querySelector('.message');
+
+    let para = createHtmlElement('p', 'msgLog');
+    para.textContent = text;
+    msgContainer.appendChild(para);
+}
+//Resize
+function resizeGrid (e){
+    e.preventDefault();
+
+    let sizeValue = getInputValuebyId('size');
+    let items = document.querySelectorAll(".item");
+
+    let size = checkSize(sizeValue);
+
+    items.forEach(item => {
+
+        item.style.width = `${size}px`;
+        item.style.height = `${size}px`;
+
+    })
+    msgLog(`The Grids are resized to ${size}px * ${size}px.`);
+}
+export {createHtmlElement, getInputValuebyId, checkSize, resizeGrid, msgLog}

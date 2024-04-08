@@ -19,7 +19,7 @@ form{
 label {
     display: block;
 }
-input[type="text"]{
+input[type="number"]{
     border-radius: 5px;
     width: 100%;
     padding: 5px;
