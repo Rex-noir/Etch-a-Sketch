@@ -48,7 +48,16 @@ svg, .header-buttons img{
     font-size: 12px;
     text-align: center;
 }
-
+.message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.message p, .message h5{
+    padding: 0;
+    margin: 0;
+}
 /* Page rows */
 .container{
     display: flex;
