@@ -56,6 +56,7 @@ function resizeGrid (e){
 
     })
     msgLog(`The Grids are resized to ${size}px * ${size}px.`);
+    return items[0].clientWidth;
 }
 
 //return random color

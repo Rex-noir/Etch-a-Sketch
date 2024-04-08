@@ -80,9 +80,6 @@ svg, .header-buttons img{
     display: flex;
 }
 .item{
-
     background-color: white;
     border: 1px solid black;
-    width: 30px;
-    height: 30px;
 }
