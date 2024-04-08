@@ -49,14 +49,12 @@ let isMouseDown = false;
 mouseDownListener(grids);
 function mouseDownListener(element){
     element.forEach((item)=>{
+        item.addEventListener("mouseenter", mouseEnterFunction);
         item.addEventListener("mousedown", (e)=>{
             isMouseDown = true;
-            item.addEventListener("")
         })
         item.addEventListener("mousemove", (e)=>{
             if (isMouseDown){
-                msgLog("mouse moved");
-                item.addEventListener("mouseenter", mouseEnterFunction);
             }
         })
         item.addEventListener("mouseup", (e)=>{
@@ -75,8 +73,9 @@ function mouseDownListener(element){
 //adding Listener to mouseenter and mouseleave of the div
 
 function mouseEnterFunction(e){
-
-    let element = e.target;
+    if (isMouseDown){
+        msgLog("Mousedown");
+        let element = e.target;
     if (random){
         let colors = getRandomColor();
         element.style.backgroundColor = `rgb(${colors[0]}, ${colors[1]}, ${colors[2]})`;
@@ -84,6 +83,9 @@ function mouseEnterFunction(e){
     else{
         element.style.backgroundColor = "black";
     }
+    }
+    else{msgLog("Mouse not down")}
+    
 }
 
 //resetButton
@@ -96,5 +98,7 @@ resetButton.addEventListener("click", ()=>{
         })
     }
     createGrid(16, container);
+    let grid = document.querySelectorAll(".container div");
+    mouseDownListener(grid);
     msgLog("The sketch is reset.")
 })
