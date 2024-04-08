@@ -57,4 +57,20 @@ function resizeGrid (e){
     })
     msgLog(`The Grids are resized to ${size}px * ${size}px.`);
 }
-export {createHtmlElement, getInputValuebyId, checkSize, resizeGrid, msgLog}
+
+//return random color
+function getRandomColor(){
+
+    let colors = [];
+    
+    for (let i = 0; i < 3; i++){
+
+        let color = Math.floor(Math.random() * 256);
+        colors.push(color);
+
+    }
+
+    return colors;
+}
+
+export {createHtmlElement, getInputValuebyId, checkSize, resizeGrid, msgLog, getRandomColor}
