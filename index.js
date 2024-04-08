@@ -7,9 +7,15 @@ let container = document.querySelector(".container");
 let random = false;
 let randomButton = document.querySelector("#randomButton");
 randomButton.addEventListener("click", (e)=>{
-    if (random) random = false;
-    else random = true;
-    msgLog("Random Color button clicked");
+    if (random) {
+        random = false;
+        msgLog("Random color off");
+    }
+    else {
+        random = true;
+        msgLog("Random color on");
+    }
+   
 })
 
 //Grid
@@ -44,7 +50,6 @@ addMouseHoverEventListener(grids);
 function addMouseHoverEventListener(element){
     element.forEach((item)=>{
         item.addEventListener("mouseenter", mouseEnterFunction);
-        item.addEventListener("mouseleave", mouseLeaveFunction);
     })
 }
 function mouseEnterFunction(e){
@@ -53,16 +58,13 @@ function mouseEnterFunction(e){
 
     if (random){
         let colors = getRandomColor();
-        msgLog(colors);
         element.style.backgroundColor = `rgb(${colors[0]}, ${colors[1]}, ${colors[2]})`;
     }
     else{
         element.style.backgroundColor = "black";
     }
 }
-function mouseLeaveFunction(e){
-    msgLog(e.type);
-}
+
 //resetButton
 let resetButton = document.querySelector("#resetButton");
 resetButton.addEventListener("click", ()=>{
