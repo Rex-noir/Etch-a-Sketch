@@ -10,6 +10,9 @@ function createHtmlElement(tagName, className, tagId){
 
     return node;
 }
-//selecting elements
-
+//getInputValue
+function getInputValuebyId(id){
+    let value = document.querySelector(`#${id}`).value;
+    return value;
+}
 export {createHtmlElement}

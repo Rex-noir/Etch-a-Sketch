@@ -3,7 +3,6 @@ import { createHtmlElement } from "./functions.js";
 let totalGrid = 16; // meaning 16 * 16
 let container = document.querySelector(".container");
 
-let size = 
 
 for (let i = 0; i < totalGrid; i ++){
 
