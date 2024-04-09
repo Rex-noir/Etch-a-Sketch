@@ -12,4 +12,4 @@ This is a project written by Ace while following **The Odin Project**.
     * 2. You can move out your mouse pointer outside the sketch pad.
 * "Mouse not down" displayed in the log means sketching is inactive.
 
-!["Sample Etch-a-Sketch showing a drawn line"] (img/sample.png)
+!["Sample Etch-a-Sketch showing a drawn line"](img/sample.png)
