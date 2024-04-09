@@ -126,6 +126,7 @@ eraseButton.addEventListener("click", (e)=>{
     }
     else {
         erase = true;
+        random = false;
         msgLog("Erase Button is enabled")
     }
 })
