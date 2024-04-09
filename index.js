@@ -15,6 +15,7 @@ randomButton.addEventListener("click", (e)=>{
     }
     else {
         random = true;
+        erase = false;
         msgLog("Random color on");
     }
    
