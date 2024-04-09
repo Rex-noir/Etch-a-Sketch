@@ -1,5 +1,6 @@
 import { createHtmlElement, getInputValuebyId, checkSize ,resizeGrid, msgLog, getRandomColor} from "./functions.js";
 
+let erase = false;
 let originalDimensions = 30;
 let totalGrid = 16; // meaning 16 * 16
 let container = document.querySelector(".container");
@@ -78,13 +79,17 @@ function mouseEnterFunction(e){
         if (e.type == 'dblclick') {
             isMouseDown = true;
         }
+
         let element = e.target;
+        if (erase) element.style.backgroundColor = "white";
+        else{
             if (random){
                 let colors = getRandomColor();
                 element.style.backgroundColor = `rgb(${colors[0]}, ${colors[1]}, ${colors[2]})`;
             }
-            else{
+            else {
                 element.style.backgroundColor = "black";
+            }
         }
     }
     else{msgLog("Mouse not down")}
@@ -108,4 +113,18 @@ resetButton.addEventListener("click", ()=>{
     let grid = document.querySelectorAll(".container div");
     mouseDownListener(grid);
     // msgLog("The sketch is reset.")
+})
+
+//erase BUtton 
+let eraseButton =document.querySelector("#eraseButton");
+eraseButton.addEventListener("click", (e)=>{
+    
+    if (erase){
+        erase = false;
+        msgLog("Erase Button is disabled")
+    }
+    else {
+        erase = true;
+        msgLog("Erase Button is enabled")
+    }
 })
